@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - sqlite-data:/app/data
+      - uploads-data:/app/uploads
+    environment:
+      - SQLALCHEMY_DATABASE_URL=sqlite:///./data/library.db
+
+  frontend:
+    build: 
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:8000
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  sqlite-data:
+  uploads-data:
