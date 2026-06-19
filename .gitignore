@@ -1,3 +1,11 @@
 # 本地题目与对话记录，不纳入版本控制
 题目.md
 对话/
+
+# 测试缓存（测试源码 backend/tests/ 保留提交）
+.pytest_cache/
+**/__pycache__/
+*.py[cod]
+
+# 运行时上传目录（启动时从 assets 复制）
+backend/uploads/
